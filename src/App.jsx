@@ -1,6 +1,9 @@
 
 import './App.css'
 import Saludo from './components/Saludo.jsx';
+import TodoList from './components/TodoList.jsx';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
 
@@ -9,7 +12,10 @@ function App() {
 
   return (
     <div>
+      <Header />
       <Saludo />
+      <TodoList />
+      <Footer />
     </div>
   )
 }

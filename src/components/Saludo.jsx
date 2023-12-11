@@ -1,3 +1,4 @@
+// import React from 'react';
 
 function Saludo() {
     const nombre = 'John Doe';
@@ -12,7 +13,7 @@ function Saludo() {
         <div>
             <img />
             <h1 style={estilo} className={isActive ? 'bg-blue' : 'bg-red'}>Bienvenido, {nombre}!</h1>
-            <p>Esta es una aplicación de ejemplo en React.</p>
+            <p>Esta es una aplicación de ejemplo.</p>
             <p>Esto funciona</p>
             <div />
             <span />
@@ -21,3 +22,18 @@ function Saludo() {
 }
 
 export default Saludo;
+
+
+// const Saludo = () => {
+
+//     return (
+//         <div></div>
+//     )
+// }
+
+//export const Saludo = () => {
+
+//     return (
+//         <div></div>
+//     )
+// }

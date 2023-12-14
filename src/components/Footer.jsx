@@ -1,9 +1,9 @@
 import '../styles/Footer.css'
 
-function Footer() {
+function Footer({texto}) {
 
     return (
-        <footer className='footer-container'>Este es el pie de página de la aplicación</footer>
+        <footer className='footer-container'>{texto}</footer>
     )
 }
 

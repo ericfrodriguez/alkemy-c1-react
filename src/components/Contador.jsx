@@ -1,13 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Button from './Button';
+import useForm from '../hooks/useForm';
 
-function Contador() {
+function Contador({valorInicial = 0}) {
+
     const [contador, setContador] = useState(0); // Estado local
-    const [contador2, setContador2] = useState(0); // Estado local
+    const [contador2, setContador2] = useState(valorInicial); // Estado local
+
+    const {value, setValue} = useForm();
+
+    let cont = useRef(0); // Valor persistente a re-renderizaciones
+
+    const parrafo = useRef(null);
+    console.log(parrafo)
 
     const incrementar = () => {
-        setContador(contador + 1);
+        // setContador(contador + 1);
+        cont.current++;
+        // console.log(cont.current);
+        console.log(parrafo.current.innerText);
+        parrafo.current.innerText = 'Texto nuevo por referencia'
     } // Hace el cambio a 1
 
     const incrementar2 = () => {
@@ -15,10 +28,11 @@ function Contador() {
     } // Hace el cambio a 1
 
     useEffect(() => {
-        console.log('Obtencion de informacion de API');
+        // console.log('Obtencion de informacion de API');
+        // miFuncion();
 
         return () => {
-            console.log('Se DESMONTÓ el componente');
+            // console.log('Se DESMONTÓ el componente');
         }
         
     }, [contador2, contador])
@@ -28,9 +42,11 @@ function Contador() {
     //* Con la funcion y el array con data. Se ejecuta el efecto cuando se monta el componente SOLO POR PRIMERA VEZ y cuando cambian las variables dentro del array
     //* Con la funcion de limpieza (clean up). Se ejecuta el codigo cuando se DESMONTA el componente
 
+    console.log('re-renderizacion');
+
     return (
         <>
-            <p>Contador: {contador}</p>
+            <p ref={parrafo}>Contador: {cont.current}</p>
             <p>Contador 2: {contador2}</p>
             <Button
                 label='Contador'

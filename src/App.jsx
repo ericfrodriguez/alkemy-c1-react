@@ -5,36 +5,41 @@ import { useState } from 'react';
 
 import './App.css'
 import Saludo from './components/Saludo.jsx';
-import Header from './components/Header.jsx';
+import Header from "./components/Header.jsx";
 import Footer from './components/Footer.jsx';
 import Formulario from './components/Formulario.jsx';
+import UserProvider from './context/UserProvider.jsx'; // Contexto
+
 
 function App() {
   const [mostrar, setMostrar] = useState(true);
   // <Saludo>Hola</Saludo> Componentes contenedores
   // <Saludo /> Componentes elementos
+  const border = 50;
 
   return (
-    <div>
+    <UserProvider>
       <Header />
       <Saludo />
       <div style={{
-        margin: '20px 5px'
+        margin: '20px 5px',
+        backgroundColor: "red",
+        borderRadius: `${border}px`
       }}>
         {
-          mostrar && <Contador />
+          mostrar ? <Contador valorInicial={10}/> : <p>Contador oculto</p>
         }
-
         <div>
           <button onClick={() => setMostrar(true)}>Montar</button>
           <button onClick={() => setMostrar(false)}>Desmontar</button>
         </div>
+
       </div>
-      <Footer texto={'Contenido footer por Props'} />
-      <Footer texto={'Otro footer'} />
+      <Footer texto={`Contenido ${border} "footer" por Props`} />
       {/* <Formulario /> */}
+      {/* <Footer texto={'Otro footer'} /> */}
       {/* <TodoList /> */}
-    </div>
+    </UserProvider>
   )
 }
 

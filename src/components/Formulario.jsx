@@ -28,6 +28,9 @@ function Formulario() {
         event.preventDefault();
         setSubmitted(true);
 
+        // Hacer validacion de credenciales}
+        // Definir un usuario y contraseña
+
         setUser({
             name,
             image

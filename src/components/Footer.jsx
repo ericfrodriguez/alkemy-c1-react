@@ -1,9 +1,17 @@
-import '../styles/Footer.css'
+import { Box } from "@mui/material";
 
-function Footer({texto}) {
+function Footer() {
 
     return (
-        <footer className='footer-container'>{texto}</footer>
+        <Box sx={{
+            minHeight: 70,
+            bgcolor: 'tomato',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
+            Derechos Reservados Alkemy
+        </Box>
     )
 }
 
